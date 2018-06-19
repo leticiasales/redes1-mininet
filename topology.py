@@ -1,11 +1,11 @@
-from random import random
+from randint import random
 from mininet.topo import Topo
 
 class MyTopo(Topo):
     def __init__(self, n = 4):
         Topo.__init__(self)
         first = None
-        for x in range(random()):
+        for x in range(randint(0, 20)):
             first = switch
             switch = self.addSwitch('s%s' % (x))
             for h in range(n):
