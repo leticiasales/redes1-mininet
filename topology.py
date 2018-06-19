@@ -1,4 +1,4 @@
-from randint import randint
+from random import randint
 from mininet.topo import Topo
 
 class MyTopo(Topo):
