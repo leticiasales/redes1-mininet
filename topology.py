@@ -4,17 +4,15 @@ class MyTopo(Topo):
 	def __init__(self):
 	
 		Topo.__init__(self)
-		
-		h1 = self.addHost('h1')
-		h2 = self.addHost('h2')
-		h3 = self.addHost('h3')
-		
-		s1 = self.addSwitch('s1')
-		s2 = self.addSwitch('s2')
-
-		self.addLink(h1, s1)
-		self.addLink(h2, s2)
-		self.addLink(h3, s2)
-		self.addLink(s1, s2)
+		n = 4
+        switch = self.addSwitch('s1')
+        # Python's range(N) generates 0..N-1
+        for h in range(n):
+            host = self.addHost('h%s' % (h + 1))
+            self.addLink(host, switch)
+        switch = self.addSwitch('s2')
+        for h in range(n):
+            host = self.addHost('h%s' % (h + 1 + n))
+            self.addLink(host, switch)
 
 topos = { 'mytopo': (lambda: MyTopo()) }
