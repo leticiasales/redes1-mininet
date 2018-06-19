@@ -5,14 +5,15 @@ class MyTopo(Topo):
     def __init__(self):
         Topo.__init__(self)
         switch = None
-        for x in range(randint(0, 10)):
+        magic = randint(0, 10)
+        for x in range(randint(0, magic)):
             first = switch
             switch = self.addSwitch('s%s' % (x))
-            for h in range(randint(0, 20) + x):
-                host = self.addHost('h%s' % (h + 1)*x)
+            for h in range(randint(0, 5)):
+                host = self.addHost('h%s' % (randint(1, magic*2))
                 self.addLink(host, switch)
             if first:
-                linkopts = dict(bw=10, delay='5ms', loss=10, max_queue_size=1000, use_htb=True)
+                linkopts = dict(bw=magic, delay='5ms', loss=10-magic, max_queue_size=1000, use_htb=True)
                 self.addLink(first, switch, linkopts)
 
 topos = { 'mytopo': (lambda: MyTopo()) }
