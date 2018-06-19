@@ -11,7 +11,7 @@ class MyTopo(Topo):
             for h in range(n):
                 host = self.addHost('h%s' % (h + 1))
                 self.addLink(host, switch)
-            if first
+            if first:
                 self.addLink(first, switch)
 
 topos = { 'mytopo': (lambda: MyTopo()) }
