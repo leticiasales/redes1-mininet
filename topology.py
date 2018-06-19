@@ -5,7 +5,7 @@ class MyTopo(Topo):
     def __init__(self, n = 4):
         Topo.__init__(self)
         first = None
-        for x in random.random:
+        for x in range(random.random):
             first = switch
             switch = self.addSwitch('s%s' % (x))
             for h in range(n):
