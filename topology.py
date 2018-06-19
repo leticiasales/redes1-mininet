@@ -9,9 +9,10 @@ class MyTopo(Topo):
             first = switch
             switch = self.addSwitch('s%s' % (x))
             for h in range(randint(0, 20) + x):
-                host = self.addHost('h%s' % (h + x + 1))
+                host = self.addHost('h%s' % (h + 1)*x)
                 self.addLink(host, switch)
             if first:
-                self.addLink(first, switch)
+                linkopts = dict(bw=10, delay='5ms', loss=10, max_queue_size=1000, use_htb=True)
+                self.addLink(first, switch, linkopts)
 
 topos = { 'mytopo': (lambda: MyTopo()) }
