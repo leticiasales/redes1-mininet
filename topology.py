@@ -14,6 +14,6 @@ class MyTopo(Topo):
                 self.addLink(host, switch)
             if first:
                 linkopts = dict(bw=magic, delay='5ms', loss=10-magic, max_queue_size=1000, use_htb=True)
-                self.addLink(first, switch, linkopts)
+                self.addLink(first, switch, **linkopts)
 
 topos = { 'mytopo': (lambda: MyTopo()) }
