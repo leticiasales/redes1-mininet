@@ -13,7 +13,6 @@ class MyTopo(Topo):
                 host = self.addHost('h%s' % (randint(1, magic*2)))
                 self.addLink(host, switch)
             if first:
-                linkopts = dict(bw=10, max_queue_size=1000, use_htb=True)
-                self.addLink(first, switch, **linkopts)
+                self.addLink(first, switch, bw=randint(5, 10))
 
 topos = { 'mytopo': (lambda: MyTopo()) }
