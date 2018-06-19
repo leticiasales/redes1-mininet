@@ -8,8 +8,8 @@ class MyTopo(Topo):
         for x in range(randint(0, 10)):
             first = switch
             switch = self.addSwitch('s%s' % (x))
-            for h in range(randint(0, 20)):
-                host = self.addHost('h%s' % (h + 1))
+            for h in range(randint(0, 20) + x):
+                host = self.addHost('h%s' % (h + x + 1))
                 self.addLink(host, switch)
             if first:
                 self.addLink(first, switch)
