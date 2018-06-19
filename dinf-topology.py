@@ -8,7 +8,7 @@ class MyTopo(Topo):
         max_labs = 4
         for x in range(labs):
             lab[x] = self.addSwitch('s%s' % (x))
-            for h in range(20 - ((x > 2)? x * 5 : 0)):
+            for h in range(20 - ((x > 2)?5 : 0) * 5):
                 host = self.addHost('h%s-lab%s' % (h), (x))
                 self.addLink(host, switch)
             if first:
