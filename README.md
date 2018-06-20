@@ -14,3 +14,8 @@ sudo mn --switch ovs --controller ref --topo tree,depth=2,fanout=8 --test pingal
 - --test pingall: set test enviroment 'pingall' where all hosts try to ping all hosts. 
 The result is displayed on screen.
 
+To this project, I created a shell script (run.sh). 
+You just have to add the test type to run it.
+Ex. 
+To display the bandwidth simulation, run > ./run.sh iperf.
+And so on.
