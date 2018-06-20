@@ -6,8 +6,8 @@ class MyTopo(Topo):
         Topo.__init__(self)
         switch = None
         max_labs = 4
-        lab = [0,0,0,0]
-        for x in range(labs):
+        lab = []
+        for x in range(max_labs):
             lab[x] = self.addSwitch('s%s' % (x))
             for h in range(20 - (5 and (x > 2) or 0) * 5):
                 host = self.addHost('h%s-lab%s' % (h), (x))
